@@ -19,9 +19,9 @@ var CsvFileReader = /** @class */ (function () {
             .map(function iterateThroughRows(row) {
             return row.split(",");
         })
-            .map(this.iterateThroughSingleRowItems);
+            .map(this.iterateThroughFootballMatches);
     };
-    CsvFileReader.prototype.iterateThroughSingleRowItems = function (row) {
+    CsvFileReader.prototype.iterateThroughFootballMatches = function (row) {
         return [
             utils_1.dateStringToDate(row[0]),
             row[1],

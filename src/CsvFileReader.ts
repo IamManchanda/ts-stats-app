@@ -1,10 +1,10 @@
 import fs from "fs";
 import { dateStringToDate } from "./utils";
-import { ReadFileSyncOptions, SingleRowItems } from "./ts-lib/types";
+import { ReadFileSyncOptions, FootballMatches } from "./ts-lib/types";
 import { MatchResult } from "./ts-lib/enums";
 
 class CsvFileReader {
-  data: SingleRowItems[] = [];
+  data: FootballMatches[] = [];
 
   constructor(public filename: string) {}
 
@@ -17,10 +17,10 @@ class CsvFileReader {
       .map(function iterateThroughRows(row: string): string[] {
         return row.split(",");
       })
-      .map(this.iterateThroughSingleRowItems);
+      .map(this.iterateThroughFootballMatches);
   }
 
-  iterateThroughSingleRowItems(row: string[]): SingleRowItems {
+  iterateThroughFootballMatches(row: string[]): FootballMatches {
     return [
       dateStringToDate(row[0]),
       row[1],
