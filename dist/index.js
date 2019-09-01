@@ -4,21 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
-var MatchResult;
-(function (MatchResult) {
-    MatchResult["HomeWin"] = "H";
-    MatchResult["AwayWin"] = "A";
-    MatchResult["Draw"] = "D";
-})(MatchResult || (MatchResult = {}));
+var enums_1 = require("./ts-lib/enums");
 var reader = new CsvFileReader_1.default("football.csv");
 reader.read();
+var dateOfFirstMatch = reader.data[0][0];
+console.log(dateOfFirstMatch);
 var manUnitedWins = 0;
 for (var _i = 0, _a = reader.data; _i < _a.length; _i++) {
     var match = _a[_i];
-    if (match[1] === "Man United" && match[5] === MatchResult.HomeWin) {
+    if (match[1] === "Man United" && match[5] === enums_1.MatchResult.HomeWin) {
         manUnitedWins += 1;
     }
-    else if (match[2] === "Man United" && match[5] === MatchResult.AwayWin) {
+    else if (match[2] === "Man United" && match[5] === enums_1.MatchResult.AwayWin) {
         manUnitedWins += 1;
     }
 }

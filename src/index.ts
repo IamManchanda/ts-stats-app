@@ -1,13 +1,11 @@
 import CsvFileReader from "./CsvFileReader";
-
-enum MatchResult {
-  HomeWin = "H",
-  AwayWin = "A",
-  Draw = "D",
-}
+import { MatchResult } from "./ts-lib/enums";
 
 const reader = new CsvFileReader("football.csv");
 reader.read();
+
+const dateOfFirstMatch: Date = reader.data[0][0];
+console.log(dateOfFirstMatch);
 
 let manUnitedWins: number = 0;
 for (const match of reader.data) {
