@@ -19,17 +19,18 @@ var CsvFileReader = /** @class */ (function () {
             .map(function iterateThroughRows(row) {
             return row.split(",");
         })
-            .map(function iterateThroughSingleRowItems(row) {
-            return [
-                utils_1.dateStringToDate(row[0]),
-                row[1],
-                row[2],
-                parseInt(row[3]),
-                parseInt(row[4]),
-                row[5],
-                row[6],
-            ];
-        });
+            .map(this.iterateThroughSingleRowItems);
+    };
+    CsvFileReader.prototype.iterateThroughSingleRowItems = function (row) {
+        return [
+            utils_1.dateStringToDate(row[0]),
+            row[1],
+            row[2],
+            parseInt(row[3]),
+            parseInt(row[4]),
+            row[5],
+            row[6],
+        ];
     };
     return CsvFileReader;
 }());
