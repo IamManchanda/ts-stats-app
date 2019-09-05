@@ -1,7 +1,7 @@
-import CsvFileReader from "./CsvFileReader";
+import FootballMatchReader from "./FootballMatchReader";
 import { MatchResult } from "./ts-lib/enums";
 
-const reader = new CsvFileReader("football.csv");
+const reader = new FootballMatchReader("football.csv");
 reader.read();
 
 const dateOfFirstMatch: Date = reader.data[0][0];

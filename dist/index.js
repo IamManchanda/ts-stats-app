@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
+var FootballMatchReader_1 = __importDefault(require("./FootballMatchReader"));
 var enums_1 = require("./ts-lib/enums");
-var reader = new CsvFileReader_1.default("football.csv");
+var reader = new FootballMatchReader_1.default("football.csv");
 reader.read();
 var dateOfFirstMatch = reader.data[0][0];
 console.log(dateOfFirstMatch);

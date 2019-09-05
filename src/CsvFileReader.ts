@@ -1,12 +1,11 @@
 import fs from "fs";
-import { dateStringToDate } from "./utils";
-import { ReadFileSyncOptions, FootballMatches } from "./ts-lib/types";
-import { MatchResult } from "./ts-lib/enums";
+import { ReadFileSyncOptions } from "./ts-lib/types";
 
-class CsvFileReader {
-  data: FootballMatches[] = [];
+abstract class CsvFileReader<FileData> {
+  data: FileData[] = [];
 
   constructor(public filename: string) {}
+  abstract iterateThroughRowItems(row: string[]): FileData;
 
   read(): void {
     this.data = fs
@@ -17,19 +16,7 @@ class CsvFileReader {
       .map(function iterateThroughRows(row: string): string[] {
         return row.split(",");
       })
-      .map(this.iterateThroughFootballMatches);
-  }
-
-  iterateThroughFootballMatches(row: string[]): FootballMatches {
-    return [
-      dateStringToDate(row[0]),
-      row[1],
-      row[2],
-      parseInt(row[3]),
-      parseInt(row[4]),
-      row[5] as MatchResult,
-      row[6],
-    ];
+      .map(this.iterateThroughRowItems);
   }
 }
 
