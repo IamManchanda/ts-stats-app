@@ -1,11 +1,10 @@
 import fs from "fs";
-import { ReadFileSyncOptions } from "./ts-lib/types";
+import { ReadFileSyncOptions } from "./ts-utils/types";
 
-abstract class CsvFileReader<FileData> {
-  data: FileData[] = [];
+class CsvFileReader {
+  data: string[][] = [];
 
   constructor(public filename: string) {}
-  abstract iterateThroughRowItems(row: string[]): FileData;
 
   read(): void {
     this.data = fs
@@ -15,8 +14,7 @@ abstract class CsvFileReader<FileData> {
       .split("\n")
       .map(function iterateThroughRows(row: string): string[] {
         return row.split(",");
-      })
-      .map(this.iterateThroughRowItems);
+      });
   }
 }
 

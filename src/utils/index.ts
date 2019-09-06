@@ -1,4 +1,4 @@
-import { StringToDate } from "../ts-lib/types";
+import { StringToDate } from "../ts-utils/types";
 
 export const dateStringToDate: StringToDate = dateString => {
   const dateParts: number[] = dateString
