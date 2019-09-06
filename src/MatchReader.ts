@@ -3,7 +3,7 @@ import { dateStringToDate } from "./utils";
 import { MatchData } from "./ts-utils/types";
 import { MatchResult } from "./ts-utils/enums";
 
-class FootballMatchReader {
+class MatchReader {
   matches: MatchData[] = [];
 
   constructor(public reader: DataReader) {}
@@ -26,4 +26,4 @@ class FootballMatchReader {
   }
 }
 
-export default FootballMatchReader;
+export default MatchReader;

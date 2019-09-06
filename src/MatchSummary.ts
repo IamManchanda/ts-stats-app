@@ -1,10 +1,10 @@
 import { MatchAnalyzer, OutputTarget } from "./ts-utils/interfaces";
 
-class FootballMatchSummary {
+class MatchSummary {
   constructor(
     public analyzer: MatchAnalyzer,
     public outputTarget: OutputTarget,
   ) {}
 }
 
-export default FootballMatchSummary;
+export default MatchSummary;

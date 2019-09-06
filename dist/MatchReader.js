@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = require("./utils");
-var FootballMatchReader = /** @class */ (function () {
-    function FootballMatchReader(reader) {
+var MatchReader = /** @class */ (function () {
+    function MatchReader(reader) {
         this.reader = reader;
         this.matches = [];
     }
-    FootballMatchReader.prototype.load = function () {
+    MatchReader.prototype.load = function () {
         this.reader.read();
         this.matches = this.reader.data.map(this.iterateThroughRowItems);
     };
-    FootballMatchReader.prototype.iterateThroughRowItems = function (row) {
+    MatchReader.prototype.iterateThroughRowItems = function (row) {
         return [
             utils_1.dateStringToDate(row[0]),
             row[1],
@@ -21,6 +21,6 @@ var FootballMatchReader = /** @class */ (function () {
             row[6],
         ];
     };
-    return FootballMatchReader;
+    return MatchReader;
 }());
-exports.default = FootballMatchReader;
+exports.default = MatchReader;
