@@ -1,7 +1,7 @@
-import { DataReader } from "./ts-lib/interfaces";
+import { DataReader } from "./ts-utils/interfaces";
 import { dateStringToDate } from "./utils";
-import { FootballMatches } from "./ts-lib/types";
-import { MatchResult } from "./ts-lib/enums";
+import { FootballMatches } from "./ts-utils/types";
+import { MatchResult } from "./ts-utils/enums";
 
 class FootballMatchReader {
   matches: FootballMatches[] = [];

@@ -1,6 +1,6 @@
 import FootballMatchReader from "./FootballMatchReader";
 import CsvFileReader from "./CsvFileReader";
-import { MatchResult } from "./ts-lib/enums";
+import { MatchResult } from "./ts-utils/enums";
 
 const csvFileReader = new CsvFileReader("football.csv");
 const footballMatchReader = new FootballMatchReader(csvFileReader);

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var FootballMatchReader_1 = __importDefault(require("./FootballMatchReader"));
 var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
-var enums_1 = require("./ts-lib/enums");
+var enums_1 = require("./ts-utils/enums");
 var csvFileReader = new CsvFileReader_1.default("football.csv");
 var footballMatchReader = new FootballMatchReader_1.default(csvFileReader);
 footballMatchReader.load();

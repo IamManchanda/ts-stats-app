@@ -1,5 +1,5 @@
 import fs from "fs";
-import { ReadFileSyncOptions } from "./ts-lib/types";
+import { ReadFileSyncOptions } from "./ts-utils/types";
 
 class CsvFileReader {
   data: string[][] = [];
