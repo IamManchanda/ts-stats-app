@@ -1,10 +1,10 @@
 import { DataReader } from "./ts-utils/interfaces";
 import { dateStringToDate } from "./utils";
-import { FootballMatches } from "./ts-utils/types";
+import { MatchData } from "./ts-utils/types";
 import { MatchResult } from "./ts-utils/enums";
 
 class FootballMatchReader {
-  matches: FootballMatches[] = [];
+  matches: MatchData[] = [];
 
   constructor(public reader: DataReader) {}
 
@@ -13,7 +13,7 @@ class FootballMatchReader {
     this.matches = this.reader.data.map(this.iterateThroughRowItems);
   }
 
-  iterateThroughRowItems(row: string[]): FootballMatches {
+  iterateThroughRowItems(row: string[]): MatchData {
     return [
       dateStringToDate(row[0]),
       row[1],
