@@ -5,18 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var MatchReader_1 = __importDefault(require("./MatchReader"));
 var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
-var enums_1 = require("./ts-utils/enums");
+var ConsoleReport_1 = __importDefault(require("./report-targets/ConsoleReport"));
+var WinsAnalysis_1 = __importDefault(require("./analyzers/WinsAnalysis"));
+var MatchSummary_1 = __importDefault(require("./MatchSummary"));
 var csvFileReader = new CsvFileReader_1.default("football.csv");
 var matchReader = new MatchReader_1.default(csvFileReader);
 matchReader.load();
-var manUnitedWins = 0;
-for (var _i = 0, _a = matchReader.matches; _i < _a.length; _i++) {
-    var match = _a[_i];
-    if (match[1] === "Man United" && match[5] === enums_1.MatchResult.HomeWin) {
-        manUnitedWins += 1;
-    }
-    else if (match[2] === "Man United" && match[5] === enums_1.MatchResult.AwayWin) {
-        manUnitedWins += 1;
-    }
-}
-console.log("Man United won " + manUnitedWins + " games");
+var manUnitedSummary = new MatchSummary_1.default(new WinsAnalysis_1.default("Man United"), new ConsoleReport_1.default());
+manUnitedSummary.buildAndPrintReport(matchReader.matches);

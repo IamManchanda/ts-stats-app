@@ -6,7 +6,7 @@ export interface DataReader {
 }
 
 export interface MatchAnalyzer {
-  run(matches: MatchData[]): void;
+  run(matches: MatchData[]): string;
 }
 
 export interface OutputTarget {
