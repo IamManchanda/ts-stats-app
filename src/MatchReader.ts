@@ -9,6 +9,10 @@ class MatchReader {
 
   constructor(public reader: DataReader) {}
 
+  static fromCsv(fileName: string) {
+    return new MatchReader(new CsvFileReader(fileName));
+  }
+
   load(): void {
     this.reader.read();
     this.matches = this.reader.data.map(this.iterateThroughRowItems);

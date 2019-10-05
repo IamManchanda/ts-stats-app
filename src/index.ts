@@ -1,9 +1,7 @@
 import MatchReader from "./MatchReader";
-import CsvFileReader from "./CsvFileReader";
 import MatchSummary from "./MatchSummary";
 
-const csvFileReader = new CsvFileReader("football.csv");
-const matchReader = new MatchReader(csvFileReader);
+const matchReader = MatchReader.fromCsv("football.csv");
 matchReader.load();
 
 const manUnitedConsoleSummary = MatchSummary.winsAnalysisWithConsoleReport(
