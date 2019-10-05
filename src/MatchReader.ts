@@ -1,3 +1,4 @@
+import CsvFileReader from "./CsvFileReader";
 import { DataReader } from "./ts-utils/interfaces";
 import { dateStringToDate } from "./utils";
 import { MatchData } from "./ts-utils/types";
